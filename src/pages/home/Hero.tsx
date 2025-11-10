@@ -1,4 +1,4 @@
-import { ChevronDown, Zap } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { useEffect, useState } from "react";
 import { useTheme } from "../../contexts/ThemeContext";

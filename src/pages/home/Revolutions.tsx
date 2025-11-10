@@ -1,5 +1,4 @@
 import { useTheme } from "../../contexts/ThemeContext";
-import { Factory, TrendingUp, Globe } from "lucide-react";
 
 export default function Revolutions() {
     const { theme } = useTheme();
@@ -7,8 +6,8 @@ export default function Revolutions() {
     const card = (idx: string | number, title: string, desc: string, img: string, colorClass: string) => (
         <div
             className={`group p-8 rounded-xl transition-all duration-300 border flex flex-col h-full ${theme === "dark"
-                    ? "bg-gradient-to-br from-slate-700 to-slate-800 border-slate-600 hover:from-blue-600/20 hover:to-cyan-600/20 hover:border-blue-400"
-                    : "bg-gradient-to-br from-slate-100 to-slate-200 border-slate-300 hover:from-blue-50/50 hover:to-cyan-50/50 hover:border-blue-400"
+                ? "bg-gradient-to-br from-slate-700 to-slate-800 border-slate-600 hover:from-blue-600/20 hover:to-cyan-600/20 hover:border-blue-400"
+                : "bg-gradient-to-br from-slate-100 to-slate-200 border-slate-300 hover:from-blue-50/50 hover:to-cyan-50/50 hover:border-blue-400"
                 }`}
             key={idx}
         >
@@ -53,7 +52,7 @@ export default function Revolutions() {
                         "3.0",
                         "Công Nghệ Thông Tin (1960-2000)",
                         "Xuất hiện công nghệ thông tin, tự động hóa sản xuất. Máy tính và internet bắt đầu thay đổi toàn bộ quy trình sản xuất.",
-                        "/znYHqDIzMj5k.jpg",
+                        "/1-5.jpg",
                         "bg-gradient-to-br from-blue-500 to-cyan-500"
                     )}
 
@@ -61,7 +60,7 @@ export default function Revolutions() {
                         "4.0",
                         "Trí Tuệ Nhân Tạo (2011-Hiện Tại)",
                         "Xuất hiện các công nghệ mới có tính đột phá: trí tuệ nhân tạo, big data, in 3D, IoT. Tích hợp công nghệ vào mọi khía cạnh sản xuất.",
-                        "/c6P5joqpHiSU.jpg",
+                        "/iot-world-image-1-1515077950.jpg",
                         "bg-gradient-to-br from-cyan-500 to-blue-500"
                     )}
                 </div>
