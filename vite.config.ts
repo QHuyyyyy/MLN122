@@ -7,10 +7,11 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      '/api': {
+      '/v1beta': {
         target: 'https://generativelanguage.googleapis.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        secure: false,
+        rewrite: (path) => path.replace(/^\/v1beta/, '/v1beta')
       }
     }
   }
