@@ -1,5 +1,6 @@
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Sparkles } from "lucide-react";
 import { useTheme } from "../../contexts/ThemeContext";
+import { Link } from "wouter";
 
 export default function Nav() {
     const { theme, toggleTheme } = useTheme();
@@ -45,6 +46,14 @@ export default function Nav() {
                         >
                             Việt Nam
                         </a>
+                        <Link
+                            href="/case-generator"
+                            className={`flex items-center gap-1 transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
+                                }`}
+                        >
+                            <Sparkles className="w-4 h-4" />
+                            Tạo ví dụ
+                        </Link>
                     </div>
                     <button
                         onClick={toggleTheme}
