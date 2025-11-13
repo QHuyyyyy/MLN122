@@ -47,9 +47,9 @@ export default function PracticeQuiz({ onImportQuestion }: { onImportQuestion?: 
     const [quizCompleted, setQuizCompleted] = useState(false);
     const [selectedQuestionsForImport, setSelectedQuestionsForImport] = useState<Set<number>>(new Set());
 
-    // Timer effect for total quiz time
+    // Timer effect for total quiz time - only start after questions are loaded
     useEffect(() => {
-        if (!quizStarted || quizCompleted) return;
+        if (!quizStarted || quizCompleted || loading || questions.length === 0) return;
 
         const timer = setInterval(() => {
             setTotalTimeElapsed(prev => {
@@ -63,7 +63,7 @@ export default function PracticeQuiz({ onImportQuestion }: { onImportQuestion?: 
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [quizStarted, quizCompleted]);
+    }, [quizStarted, quizCompleted, loading, questions.length]);
 
     const handleSelectAnswer = (option: string) => {
         if (progress.isAnswered) return;
