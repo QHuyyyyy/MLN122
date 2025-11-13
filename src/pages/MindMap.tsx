@@ -149,7 +149,7 @@ export default function MindMap() {
                         ? 'bg-blue-900/20 border-blue-700/30 text-blue-200'
                         : 'bg-blue-100/30 border-blue-300/30 text-blue-800'
                         } text-xs`}>
-                        <strong>Mẹo:</strong> Nhập chi tiết hơn để có mindmap chi tiết hơn. Bạn có thể hỏi về các lý thuyết kinh tế chính trị, giai đoạn phát triển, v.v.
+                        <strong>Mẹo:</strong> Nhập chi tiết hơn để có mindmap chi tiết hơn. Bạn có thể prompt về các lý thuyết kinh tế chính trị, giai đoạn phát triển, v.v.
                     </div>
 
                     {/* Divider */}
