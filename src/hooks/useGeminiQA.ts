@@ -39,7 +39,7 @@ export const useGeminiQA = () => {
                     generationConfig: {
                         temperature: 0.2,
                         topP: 0.95,
-                        maxOutputTokens: 1000
+                        maxOutputTokens: 10000
                     }
                 })
             });

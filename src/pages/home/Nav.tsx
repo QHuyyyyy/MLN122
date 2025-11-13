@@ -68,6 +68,13 @@ export default function Nav() {
                         >
                             Chatbot
                         </a>
+                        <a
+                            href="/practice"
+                            className={`transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
+                                }`}
+                        >
+                            Practice
+                        </a>
                     </div>
                     <button
                         onClick={toggleTheme}

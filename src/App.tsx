@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import CaseGenerator from "./pages/CaseGenerator";
 import MindMap from "./pages/MindMap";
 import Chatbot from "./pages/Chatbot";
+import Practice from "./pages/Practice";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route path={"/case-generator"} component={CaseGenerator} />
       <Route path={"/mindmap"} component={MindMap} />
       <Route path={"/chat"} component={Chatbot} />
+      <Route path={"/practice"} component={Practice} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -8,17 +8,19 @@
             "C. W = 115000USD",
             "D. W = 100000USD"
         ],
-        "answer": "A"
+        "answer": "A",
+        "type": "math"
     },
     {
         "id": 2,
-        "question": "Explain the difference between state and props in React.",
+        "question": "Tỷ suất lợi nhuận được ký hiệu là p' được tính bằng công thức:",
         "options": [
-            "A. State is mutable, props are immutable",
-            "B. Props are mutable, state is immutable",
-            "C. Both are mutable",
-            "D. Both are immutable"
+            "A. p'= m/(c+v)*100%",
+            "B. p'= t/ (c+v)*100%",
+            "C. p'= m/(c+v+m)*100%",
+            "D. p'= p/(c+v)*100%"
         ],
-        "answer": "A"
+        "answer": "D",
+        "type": "formula"
     }
 ]
