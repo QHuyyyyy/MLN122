@@ -6,7 +6,7 @@ import { useLocation } from 'wouter';
 import { useGeminiQA } from '../hooks/useGeminiQA';
 
 export default function Chatbot() {
-    const { loading, error, ask, hasApiConfig } = useGeminiQA();
+    const { loading, ask, hasApiConfig } = useGeminiQA();
     const { theme, toggleTheme } = useTheme();
     const [, navigate] = useLocation();
 
@@ -16,6 +16,26 @@ export default function Chatbot() {
 
     const showHero = messages.length === 0;
 
+    // Check if there are imported questions from Practice on mount
+    useEffect(() => {
+        const importedQuestions = sessionStorage.getItem('importedQuestions');
+        if (importedQuestions) {
+            try {
+                const questions = JSON.parse(importedQuestions);
+                if (Array.isArray(questions) && questions.length > 0) {
+                    const questionsText = questions
+                        .map((q: any) => `${q.question}\n${q.options.join('\n')}`)
+                        .join('\n\n---\n\n');
+                    setInput(questionsText);
+                    sessionStorage.removeItem('importedQuestions');
+                }
+            } catch (e) {
+                console.error('Failed to parse imported questions:', e);
+            }
+        }
+    }, []);
+
+    // Scroll to bottom when messages change
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages, loading]);
@@ -36,8 +56,6 @@ export default function Chatbot() {
             setMessages(prev => [...prev, { id: `err-${Date.now()}`, from: 'bot', text: 'Có lỗi khi gọi API. Vui lòng thử lại.' }]);
         }
     };
-
-    // note: input key handling is done inline on the input/textarea elements
 
     const handleNavigateHome = () => navigate('/');
     const handleNavigateMindMap = () => navigate('/mindmap');
@@ -111,9 +129,6 @@ export default function Chatbot() {
                             {/* Bottom sticky input - centered pill */}
                             <div className="fixed left-0 right-0 bottom-0 flex justify-center pb-6 pointer-events-none bg-linear-to-t from-white dark:from-slate-950 to-transparent">
                                 <div className="pointer-events-auto w-full max-w-4xl px-6">
-                                    {error && (
-                                        <div className="mb-3 text-sm text-red-600">{error}</div>
-                                    )}
                                     <div className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full px-4 py-2 shadow-lg">
                                         <button className="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700"><Mic className="w-5 h-5" /></button>
                                         <input
