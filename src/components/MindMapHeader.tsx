@@ -4,9 +4,11 @@ import { useTheme } from '../contexts/ThemeContext';
 interface MindMapHeaderProps {
     onToggleTheme: () => void;
     onNavigateHome: () => void;
+    onNavigateChat?: () => void;
+    onNavigateMindMap?: () => void;
 }
 
-export default function MindMapHeader({ onToggleTheme, onNavigateHome }: MindMapHeaderProps) {
+export default function MindMapHeader({ onToggleTheme, onNavigateHome, onNavigateChat, onNavigateMindMap }: MindMapHeaderProps) {
     const { theme } = useTheme();
 
     const navBgClass = theme === 'dark'
@@ -33,6 +35,22 @@ export default function MindMapHeader({ onToggleTheme, onNavigateHome }: MindMap
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
+                        {onNavigateChat && (
+                            <button
+                                onClick={onNavigateChat}
+                                className={`px-3 py-2 rounded-lg transition-colors text-sm font-medium ${linkHoverClass}`}
+                            >
+                                💬 Chat
+                            </button>
+                        )}
+                        {onNavigateMindMap && (
+                            <button
+                                onClick={onNavigateMindMap}
+                                className={`px-3 py-2 rounded-lg transition-colors text-sm font-medium ${linkHoverClass}`}
+                            >
+                                🧠 MindMap
+                            </button>
+                        )}
                         <button
                             onClick={onNavigateHome}
                             className={`px-3 py-2 rounded-lg transition-colors ${linkHoverClass}`}
@@ -50,18 +68,6 @@ export default function MindMapHeader({ onToggleTheme, onNavigateHome }: MindMap
                 </div>
             </nav>
 
-            {/* Page Header */}
-            <div className={`mt-20 ${theme === 'dark'
-                ? 'bg-linear-to-r from-blue-600 to-cyan-600'
-                : 'bg-linear-to-r from-blue-500 to-cyan-500'
-                } px-6 py-8 shadow-lg border-b ${theme === 'dark' ? 'border-slate-700/30' : 'border-blue-200/30'}`}>
-                <div className="max-w-7xl mx-auto">
-                    <h1 className="text-4xl font-bold text-white">🧠 MindMap AI</h1>
-                    <p className={`mt-2 ${theme === 'dark' ? 'text-blue-100' : 'text-blue-50'}`}>
-                        Tạo mindmap từ lý thuyết kinh tế chính trị Mác-Lênin
-                    </p>
-                </div>
-            </div>
         </>
     );
 }

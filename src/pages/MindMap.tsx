@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { Loader2, Send, AlertCircle } from 'lucide-react';
+import { Loader2, Send, AlertCircle, RotateCcw } from 'lucide-react';
 import MindMapDisplay from '../components/MindMapDisplay';
 import MindMapHeader from '../components/MindMapHeader';
 import MindMapSidebar from '../components/MindMapSidebar';
-import { useDifyMindmap } from '../hooks/useDifyMindmap';
+import { useGeminiMindmap } from '../hooks/useGeminiMindmap';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLocation } from 'wouter';
 
 export default function MindMap() {
     const [prompt, setPrompt] = useState('');
-    const { loading, error, mindmapData, generateMindmap, hasApiConfig } = useDifyMindmap();
+    const { loading, error, mindmapData, generateMindmap, hasApiConfig, clearMindmap } = useGeminiMindmap();
     const { theme, toggleTheme } = useTheme();
     const [, navigate] = useLocation();
 
@@ -20,7 +20,7 @@ export default function MindMap() {
         }
 
         if (!hasApiConfig) {
-            alert('Vui lòng cấu hình VITE_DIFY_API_KEY và VITE_DIFY_API_URL trong file .env.local');
+            alert('Vui lòng cấu hình VITE_GEMINI_API_KEY trong file .env.local');
             return;
         }
 
@@ -38,12 +38,17 @@ export default function MindMap() {
         }
     };
 
-    const handleApplyPrompt = (appliedPrompt: string) => {
-        setPrompt(appliedPrompt);
-    };
+    // Helper to set prompt programmatically if needed in future
+    // const handleApplyPrompt = (appliedPrompt: string) => {
+    //     setPrompt(appliedPrompt);
+    // };
 
     const handleNavigateHome = () => {
         navigate('/');
+    };
+
+    const handleNavigateChat = () => {
+        navigate('/chat');
     };
 
     const handleToggleTheme = () => {
@@ -58,10 +63,11 @@ export default function MindMap() {
             <MindMapHeader
                 onToggleTheme={handleToggleTheme}
                 onNavigateHome={handleNavigateHome}
+                onNavigateChat={handleNavigateChat}
             />
 
             {/* Main Content */}
-            <div className="flex-1 flex overflow-hidden pt-4 px-4 pb-4 gap-4">
+            <div className="flex-1 flex overflow-hidden pt-4 px-4 pb-4 gap-4 mt-20">
                 {/* Left Sidebar */}
                 <MindMapSidebar>
                     {/* Config Status */}
@@ -73,7 +79,7 @@ export default function MindMap() {
                             <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                             <div>
                                 <strong className="block">⚠️ Chưa cấu hình API!</strong>
-                                <p className="text-xs mt-1 opacity-90">Thêm VITE_DIFY_API_KEY và VITE_DIFY_API_URL vào file .env.local</p>
+                                <p className="text-xs mt-1 opacity-90">Thêm VITE_GEMINI_API_KEY vào file .env.local</p>
                             </div>
                         </div>
                     )}
@@ -108,7 +114,7 @@ export default function MindMap() {
                             </div>
                         )}
 
-                        {/* Submit Button */}
+                        {/* Action Buttons */}
                         <button
                             onClick={handleGenerate}
                             disabled={loading || !hasApiConfig}
@@ -125,6 +131,16 @@ export default function MindMap() {
                                     Tạo MindMap
                                 </>
                             )}
+                        </button>
+
+                        {/* Refresh button to clear current mindmap */}
+                        <button
+                            onClick={() => clearMindmap?.()}
+                            disabled={loading || !mindmapData}
+                            className={`mt-2 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border ${theme === 'dark' ? 'border-slate-600 text-slate-200 hover:bg-slate-800' : 'border-gray-300 text-gray-800 hover:bg-gray-100'} transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
+                        >
+                            <RotateCcw className="w-4 h-4" />
+                            Làm mới (xóa mindmap)
                         </button>
                     </div>
 
