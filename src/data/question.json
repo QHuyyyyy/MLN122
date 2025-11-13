@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "question": "Để sản xuất ra 1000 đôi dép, công ty đầu tư 100000 USD cho nguyên liệu, vật liệu, 5000 USD cho hao mòn máy móc. Công ty đó trả 5000 USD cho công nhân, trình độ bóc lột đạt 200%. Tính giá trị (W) của 10000 đôi dép công ty sản xuất ra?",
+        "options": [
+            "A. W = 120000USD",
+            "B. W = 110000USD",
+            "C. W = 115000USD",
+            "D. W = 100000USD"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 2,
+        "question": "Explain the difference between state and props in React.",
+        "options": [
+            "A. State is mutable, props are immutable",
+            "B. Props are mutable, state is immutable",
+            "C. Both are mutable",
+            "D. Both are immutable"
+        ],
+        "answer": "A"
+    }
+]

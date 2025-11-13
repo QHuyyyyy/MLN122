@@ -1,5 +1,6 @@
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Sparkles } from "lucide-react";
 import { useTheme } from "../../contexts/ThemeContext";
+import { Link } from "wouter";
 
 export default function Nav() {
     const { theme, toggleTheme } = useTheme();
@@ -7,8 +8,8 @@ export default function Nav() {
     return (
         <nav
             className={`fixed top-0 w-full z-50 backdrop-blur-sm transition-colors duration-300 ${theme === "dark"
-                    ? "bg-gradient-to-b from-slate-900 to-transparent"
-                    : "bg-gradient-to-b from-white/80 to-transparent border-b border-slate-200/30"
+                ? "bg-gradient-to-b from-slate-900 to-transparent"
+                : "bg-gradient-to-b from-white/80 to-transparent border-b border-slate-200/30"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -45,12 +46,34 @@ export default function Nav() {
                         >
                             Việt Nam
                         </a>
+                        <Link
+                            href="/case-generator"
+                            className={`flex items-center gap-1 transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
+                                }`}
+                        >
+                            <Sparkles className="w-4 h-4" />
+                            Tạo ví dụ
+                        </Link>
+                        <a
+                            href="/mindmap"
+                            className={`transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
+                                }`}
+                        >
+                            MindMap
+                        </a>
+                        <a
+                            href="/chat"
+                            className={`transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
+                                }`}
+                        >
+                            Chatbot
+                        </a>
                     </div>
                     <button
                         onClick={toggleTheme}
                         className={`p-2 rounded-lg transition-colors ${theme === "dark"
-                                ? "bg-slate-800 hover:bg-slate-700 text-yellow-400"
-                                : "bg-slate-200 hover:bg-slate-300 text-slate-700"
+                            ? "bg-slate-800 hover:bg-slate-700 text-yellow-400"
+                            : "bg-slate-200 hover:bg-slate-300 text-slate-700"
                             }`}
                         aria-label="Toggle theme"
                     >
