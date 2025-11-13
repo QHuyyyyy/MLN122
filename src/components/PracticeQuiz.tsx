@@ -315,8 +315,8 @@ export default function PracticeQuiz({ onImportQuestion }: { onImportQuestion?: 
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             className={`mb-8 p-6 rounded-lg border ${theme === 'dark'
-                                    ? 'bg-slate-700/30 border-slate-600/50'
-                                    : 'bg-blue-50/50 border-blue-200/50'
+                                ? 'bg-slate-700/30 border-slate-600/50'
+                                : 'bg-blue-50/50 border-blue-200/50'
                                 }`}
                         >
                             <h3 className={`text-lg font-bold mb-4 ${textColor}`}>
@@ -330,18 +330,18 @@ export default function PracticeQuiz({ onImportQuestion }: { onImportQuestion?: 
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => handleToggleQuestion(idx)}
                                         className={`p-3 text-left rounded-lg border-2 transition-all ${selectedQuestionsForImport.has(idx)
-                                                ? theme === 'dark'
-                                                    ? 'bg-blue-500/20 border-blue-500/50'
-                                                    : 'bg-blue-100/50 border-blue-500/50'
-                                                : theme === 'dark'
-                                                    ? 'bg-slate-700/20 border-slate-600/30 hover:border-slate-500/50'
-                                                    : 'bg-gray-100/30 border-gray-300/30 hover:border-gray-400/50'
+                                            ? theme === 'dark'
+                                                ? 'bg-blue-500/20 border-blue-500/50'
+                                                : 'bg-blue-100/50 border-blue-500/50'
+                                            : theme === 'dark'
+                                                ? 'bg-slate-700/20 border-slate-600/30 hover:border-slate-500/50'
+                                                : 'bg-gray-100/30 border-gray-300/30 hover:border-gray-400/50'
                                             }`}
                                     >
                                         <div className="flex items-start gap-3">
                                             <div className={`mt-1 w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 ${selectedQuestionsForImport.has(idx)
-                                                    ? 'bg-blue-500 border-blue-500 text-white'
-                                                    : 'border-gray-400'
+                                                ? 'bg-blue-500 border-blue-500 text-white'
+                                                : 'border-gray-400'
                                                 }`}>
                                                 {selectedQuestionsForImport.has(idx) && '✓'}
                                             </div>
