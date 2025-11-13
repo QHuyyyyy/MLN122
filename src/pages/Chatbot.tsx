@@ -47,8 +47,8 @@ export default function Chatbot() {
             ? 'bg-slate-950'
             : 'bg-gray-50'}
         `}>
-            <MindMapHeader 
-                onToggleTheme={() => toggleTheme?.()} 
+            <MindMapHeader
+                onToggleTheme={() => toggleTheme?.()}
                 onNavigateHome={handleNavigateHome}
                 onNavigateMindMap={handleNavigateMindMap}
             />
