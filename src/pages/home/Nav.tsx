@@ -54,27 +54,27 @@ export default function Nav() {
                             <Sparkles className="w-4 h-4" />
                             Tạo ví dụ
                         </Link>
-                        <a
+                        <Link
                             href="/mindmap"
                             className={`transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
                                 }`}
                         >
                             MindMap
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/chat"
                             className={`transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
                                 }`}
                         >
                             Chatbot
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/practice"
                             className={`transition-colors ${theme === "dark" ? "hover:text-blue-400" : "hover:text-blue-600"
                                 }`}
                         >
                             Practice
-                        </a>
+                        </Link>
                     </div>
                     <button
                         onClick={toggleTheme}
